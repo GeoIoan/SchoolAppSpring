@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers Search</title>
+    <link rel="stylesheet" href="./css/teachersmenu.css">
+    <style>
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="center">
+    <p>Hello <!-- Display the user's name here --></p>
+</div>
+
+<div class="center">
+    <div class="search-wrapper">
+        <div class="bot-gap">
+            <span class="title">Teachers Search</span>
+        </div>
+        <div class="bot-gap">
+            <p class="error-message"></p>
+            <form id="search-form" method="GET">
+                <input id="search-lastname" name="lastname" type="text" class="search rounded" placeholder="Insert teacher's lastname"
+                       autofocus/>
+                <br><br>
+                <button class="search-btn rounded color-btn" type="submit">Search</button>
+            </form>
+            <p class="not-found-error">The teacher was not found</p>
+        </div>
+    </div>
+
+    <div class="insert-wrapper">
+        <div class="bot-gap">
+            <span class="title">Teachers Insert</span>
+        </div>
+        <div class="bot-gap">
+            <form id="insert-form" class="insert-form">
+
+                <div class="field-container">
+                    <input id="lastname" name="lastname" type="text" class="insert rounded" placeholder="Last name" autofocus/>
+                    <p class="lastname-error error-message"></p>
+                </div>
+                <div class="field-container">
+                    <input id="firstname" name="firstname" type="text" class="insert rounded" placeholder="First name" autofocus/>
+                    <p class="firstname-error error-message"></p>
+                </div>
+                <div class="field-container">
+                    <input id="ssn" name="ssn" type="text" class="insert rounded" placeholder="SSN" autofocus/>
+                    <p class="ssn-error error-message"></p>
+                </div>
+
+                <div class="field-container">
+                    <select id="username" name="username" class="insert rounded">
+                    </select>
+                    <p class="user-error error-message" ></p>
+                </div>
+
+                <div class="field-container">
+                    <select id="speciality" name="speciality" class="insert rounded">
+                    </select>
+                    <p class="speciality-error error-message"></p>
+                </div>
+
+                <br> <br>
+
+                <button class="search-btn rounded color-btn" type="submit">Insert</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="menu.js"></script>
+</body>
+</html>

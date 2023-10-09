@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/menu.css">
+    <title>Main Menu</title>
+</head>
+<body>
+<div>
+    <a href="index.html">Teachers</a>
+</div>
+<div>
+    <a href="">Students</a>
+</div>
+<div>
+    <p id="error-message" style="display: none;">Πρόβλημα κατά τη φόρτωση της σελίδας</p>
+</div>
+
+<script>
+    function getQueryParam(paramName) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(paramName);
+    }
+
+    const errorParam = getQueryParam("error");
+    const errorMessageElement = document.getElementById("error-message");
+
+    if (errorParam === "true") {
+        errorMessageElement.style.display = "block";
+    }
+</script>
+</body>
+</html>

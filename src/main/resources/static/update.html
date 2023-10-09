@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Update</title>
+    <link rel="stylesheet" type="text/css" href="./css/teacherupdate.css">
+</head>
+<body>
+<div class="update-form">
+    <form method="POST" id="updateTeacherForm">
+        <div class="field-container">
+            <label for="tid">Κωδικός</label>
+            <input id="tid" type="text" name="id" readonly>
+        </div>
+        <div class="field-container">
+            <label for="firstname">Όνομα</label>
+            <input id="firstname" type="text" name="firstname">
+            <p class="firstname-error error-message"></p>
+        </div>
+        <div class="field-container">
+            <label for="lastname">Επώνυμο</label>
+            <input id="lastname" type="text" name="lastname">
+            <p class="lastname-error error-message"></p>
+        </div>
+        <div class="field-container">
+            <label for="ssn">SSN</label>
+            <input id="ssn" type="text" name="ssn">
+            <p class="ssn-error error-message"></p>
+        </div>
+
+        <div class="field-container">
+            <select name="username" id="username">
+            </select>
+            <p class="user-error error-message"></p>
+        </div>
+
+        <div class="field-container">
+            <select name="speciality" id="speciality">
+            </select>
+            <p class="speciality-error error-message"></p>
+        </div>
+        <br><br>
+        <button type="submit">Update Teacher</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./update.js"></script>
+</body>
+</html>

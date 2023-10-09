@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Επιτυχής Εισαγωγή</title>
+  <link rel="stylesheet" href="./css/inserted.css">
+</head>
+<body>
+<div class="container">
+  <h1>Teacher inserted successfully</h1>
+
+  <p id="lastname"></p>
+  <p id="firstname"></p>
+  <p id="ssn"></p>
+  <p id="username"></p>
+  <p id="speciality"></p>
+  <p></p>
+</div>
+
+<div class="bottom-link">
+  <a href="index.html">Επιστροφή</a>
+</div>
+
+<script>
+  function handleParameters() {
+    const params = new URLSearchParams(window.location.search);
+    const insertedTeacher = {
+      lastname: params.get("lastname"),
+      firstname: params.get("firstname"),
+      ssn: params.get("ssn"),
+      username: params.get("username"),
+      speciality: params.get("speciality")
+    };
+
+    document.getElementById("lastname").textContent = "Last Name: " + insertedTeacher.lastname;
+    document.getElementById("firstname").textContent = "First Name: " + insertedTeacher.firstname;
+    document.getElementById("ssn").textContent = "SSN: " + insertedTeacher.ssn;
+    document.getElementById("username").textContent = "Username: " + insertedTeacher.username;
+    document.getElementById("speciality").textContent = "Speciality: " + insertedTeacher.speciality;
+  }
+
+  handleParameters();
+</script>
+</body>
+</html>

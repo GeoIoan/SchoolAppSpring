@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const teacherId = urlParams.get("id");
+
+        $.ajax({
+            url: `http://localhost:8080/api/teachers/${teacherId}`,
+            type: "DELETE"
+        })
+        .done(function (response) {
+            console.log(response)
+            const deletedTeacher = encodeURIComponent(JSON.stringify(response));
+
+            window.location.href = `http://localhost:8080/deleted.html?deletedTeacher=${deletedTeacher}`;
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            window.location.href = "http://localhost:8080/main-menu.html?error=true"
+        })
+    })
+</script>
+</body>
+</html>

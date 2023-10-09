@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Νέα Στοιχεία Teacher</title>
+    <link rel="stylesheet" type="text/css" href="./css/updated.css">
+</head>
+<body>
+<div class="container">
+    <h1>Νέα Στοιχεία Teacher</h1>
+    <p id="firstname"></p>
+    <p id="lastname"></p>
+    <p id="ssn"></p>
+    <p id="username"></p>
+    <p id="speciality"></p>
+</div>
+<div class="bottom-link">
+    <button id="returnButton">Επιστροφή</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const firstname = urlParams.get('firstname');
+        const lastname = urlParams.get('lastname');
+        const ssn = urlParams.get('ssn');
+        const username = urlParams.get('username');
+        const speciality = urlParams.get('speciality');
+
+        document.getElementById('firstname').textContent = firstname;
+        document.getElementById('lastname').textContent = lastname;
+        document.getElementById('ssn').textContent = ssn;
+        document.getElementById('username').textContent = username;
+        document.getElementById('speciality').textContent = speciality;
+
+
+        $("#returnButton").click(function () {
+            $.ajax({
+                url: `http://localhost:8080/api/teachers?lastname=${lastname}`,
+                type: "GET"
+            })
+                .done(function (response) {
+                    const teachersList = encodeURIComponent(JSON.stringify(response));
+
+                    window.location.href = `http://localhost:8080/teachers.html?teachersList=${teachersList}`
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    window.location.href = "http://localhost:8080/main-menu.html?error=true"
+                })
+        })
+    })
+</script>
+</body>
+</html>

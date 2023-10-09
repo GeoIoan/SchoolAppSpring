@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Deleted Teacher</title>
+    <link rel="stylesheet" href="./css/deleted.css">
+</head>
+<body>
+<div class="container">
+    <p>Teacher: <span id="teacherId"></span> <span id="teacherFirstname"></span> <span id="teacherLastname"></span> <span id="teacherSsn"></span> <span id="teacherUsername"></span> <span id="teacherSpeciality"></span> was deleted</p>
+</div>
+
+<div class="bottom-link">
+    <button class="return-button">Επιστροφή</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const deletedTeacherJSON = urlParams.get('deletedTeacher');
+        const deletedTeacher = JSON.parse(deletedTeacherJSON);
+
+        document.getElementById('teacherId').textContent = deletedTeacher.id;
+        document.getElementById('teacherFirstname').textContent = deletedTeacher.firstname;
+        document.getElementById('teacherLastname').textContent = deletedTeacher.lastname;
+        document.getElementById('teacherSsn').textContent = deletedTeacher.ssn;
+        document.getElementById('teacherUsername').textContent = deletedTeacher.username;
+        document.getElementById('teacherSpeciality').textContent = deletedTeacher.speciality;
+
+        $(".return-button").click(function () {
+            $.ajax({
+                url: `http://localhost:8080/api/teachers?lastname=${encodeURIComponent(deletedTeacher.lastname)}`,
+                type: "GET"
+            })
+            .done(function (response) {
+                const teachersList = encodeURIComponent(JSON.stringify(response));
+                window.location.href = `http://localhost:8080/teachers.html?teachersList=${teachersList}`
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                if(jqXHR.status === 400) window.location.href = "http://localhost:8080/index.html"
+                else window.location.href = "http://localhost:8080/main-menu.html?error=true"
+            })
+        })
+    })
+</script>
+</body>
+</html>

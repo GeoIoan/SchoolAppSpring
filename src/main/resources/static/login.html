@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <h1 class="text-grey">Login</h1>
+        </div>
+        <form id="loginForm">
+            <div class="row">
+                <input id="username" type="email" name="username" required placeholder="E-mail">
+                <span></span>
+            </div>
+            <div class="row">
+                <input id="password" type="password" name="password" required placeholder="Password">
+                <span></span>
+            </div>
+            <div class="row">
+                <button type="submit">Sign In</button>
+            </div>
+        </form>
+        <div class="row text-grey">
+            <a href="#">Lost your password?</a>
+        </div>
+    </div>
+    <div class="row">
+        <p>Don't have an account? <a href="http://localhost:8080/register.html">Sign up here!</a></p>
+    </div>
+</div>
+
+<div class="container">
+    <p id="errorText" style="color: red; display: none;"></p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="login.js" ></script>
+</body>
+</html>

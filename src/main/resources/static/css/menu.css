@@ -1,0 +1,24 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: #A57D84;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.menu {
+    text-align: center;
+}
+
+.menu a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}

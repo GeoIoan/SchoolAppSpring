@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <h1 class="text-grey">Register</h1>
+        </div>
+
+        <form id="registerForm">
+            <div class="row">
+                <input type="email" id="username" required placeholder="E-mail">
+                <span id="usernameError" class="err" style="color: red"></span>
+            </div>
+            <div class="row">
+                <input type="password" id="password" required placeholder="Password">
+                <span id="passwordError" class="err" style="color: red"></span>
+            </div>
+            <div class="row">
+                <input type="password" id="confirmedPassword" required placeholder="Confirm Password">
+                <span id="confirmedPasswordError" class="err" style="color: red"></span>
+            </div>
+            <div class="row">
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <p>Already have an account? <a href="http://localhost:8080/login.html">Sign in here!</a></p>
+    </div>
+</div>
+
+<div class="container">
+    <p id="errorMessage" class="err" style="color: red">An internal error occurred</p>
+    <p id="successMessage" class="err" style="color: blue">The user was successfully registered</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#registerForm").submit(function (event) {
+            event.preventDefault();
+            $(".err").hide()
+
+            const username = $("#username").val();
+            const password = $("#password").val();
+            const confirmedPassword = $("#confirmedPassword").val();
+
+            $.ajax({
+                url: "http://localhost:8080/api/users/register",
+                type: "POST",
+                data: JSON.stringify({ username: username, password: password, confirmedPassword: confirmedPassword }),
+                dataType: "json",
+                contentType: "application/json",
+            })
+            .done(function(response) {
+                console.log(response)
+               $("#successMessage").show()
+            })
+            .fail(function (jqXHR, textStatus, errorThrown){
+                if (jqXHR.status === 400) {
+                    console.log(jqXHR.responseJSON)
+                   errorHandling(jqXHR.responseJSON)
+                } else {
+                    $('#errorMessage').show()
+                }
+            })
+        });
+
+        function errorHandling(errorsMap) {
+            for (const key in errorsMap) {
+                if (errorsMap.hasOwnProperty(key)) {
+                    const error = errorsMap[key];
+                    const errorField = $(`#${key}Error`);
+
+                    errorField.text(error).show();
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
