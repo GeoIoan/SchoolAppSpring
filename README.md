@@ -20,7 +20,7 @@ School App Spring represents a school management application built with Java Spr
 
 - **Utility Methods:** Utility methods include configurations for date formats and password encryption.
 
-- **Front-End:** The front-end is integrated with the web server, providing pages for teacher CRUD operations and login/register functionality. Styling is planned to be improved using HTML5, CSS, and jQuery.
+- **Front-End:** The front-end (HTML5, CSS, and jQuery) is integrated with the web server, providing pages for teacher CRUD operations and login/register functionality. Styling is planned to be improved.
 
 ## Gradle Configuration
 
