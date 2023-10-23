@@ -2,6 +2,26 @@
 
 School App Spring represents a school management application built with Java Spring Boot following the Service-Oriented Architecture (SOA) model. This application allows users to create accounts and log in as teachers or students. Teachers have the ability to perform CRUD operations related to students. The application is designed to support a role system in the future.
 
+# Entities
+
+1. **Users:** Represents user profiles within the system.
+
+2. **Students:** Describes students within the educational context.
+
+3. **Cities:** Defines the cities associated with students' locations.
+
+4. **Teachers:** Represents teachers in the educational system.
+
+5. **Specialities:** Classifies teachers into different specialized areas or subjects.
+
+## Future Enhancements
+
+- **Courses:** To be added in the future, providing educational courses for students.
+
+- **Meetings:** To be added in the future, enabling communication and interaction between students and teachers during meetings.
+
+These entities form the foundational structure of the system, and additional features such as courses and meetings will expand its capabilities and functionalities.
+
 ## Features
 
 - **Authentication and Authorization:** Authentication and authorization are planned to be implemented in the future using JWT tokens.
@@ -14,7 +34,7 @@ School App Spring represents a school management application built with Java Spr
 
 - **DTOs:** Data Transfer Objects (DTOs) facilitate the exchange of data between different parts of the application.
 
-- **Model:** The application model represents the structure and organization of data, including students, teachers, and roles.
+- **Model:** The application model represents the structure and organization of data, including students, teachers, specialities, cities, users.
 
 - **Validators:** Validators ensure data input meets the required criteria.
 
