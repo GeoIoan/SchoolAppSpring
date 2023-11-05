@@ -1,5 +1,5 @@
 # School App Spring
-School App Spring is a straightforward school management application built with Java Spring Boot and follows the Service-Oriented Architecture (SOA) model. This application allows users to create accounts and log in as teachers or students. Teachers have the ability to perform CRUD operations related to student data. In the future, students will be able to access their course and meeting information. Additionally, the application's functionality will be organized by an upcoming role system, allowing certain teachers to manage teacher-related data based on their roles.
+School App Spring is a straightforward school management application built with Java Spring Boot. This application allows users to create accounts and log in as teachers or students. Teachers have the ability to perform CRUD operations related to student data. In the future, students will be able to access their course and meeting information. Additionally, the application's functionality will be organized by an upcoming role system, allowing certain teachers to manage teacher-related data based on their roles.
 
 # Entities
 
