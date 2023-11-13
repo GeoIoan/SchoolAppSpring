@@ -80,4 +80,5 @@ The application is built using Gradle. The `build.gradle` file includes dependen
 - Course and meeting functionality for students.
 
 - Implementation of authentication and authorization using JWT tokens.
+- Doc comments will be added soon!
 
